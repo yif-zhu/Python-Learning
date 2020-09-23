@@ -1,0 +1,33 @@
+Git命令：
+
+一、初次安装git需要配置用户名和邮箱：
+
+$ git config --global user.name "your_name"
+$ git config --global user.email "your_email@163.com"
+
+二、然后生成密钥对
+
+$ ssh-keygen -t rsa -C "your_email@youremail.com"
+这里不用输入什么，直接回车返回就行
+
+$ ssh -v git@github.com
+查看生成的id_rsa.pub 路径，并将改文件内容加到github的setting中的SSH中
+
+验证Key，执行下面，提示：Hi xxx! You've successfully authenticated, but GitHub does not provide shell access. 问题成功啦
+$ ssh -T git@github.com 
+
+1.初始化当前目录，git init命令把这个目录变成Git可以管理的仓库
+$ git init
+
+2.用命令git add告诉Git，把文件添加到仓库
+$ git add a.txt			#将a.txt加入到暂存区
+$ git add .				#将文件夹下的所有文件加入到暂存区
+$ git add *.txt			#将所有txt文件加入到暂存区
+
+3.用命令git rm告诉git,把文件从仓库中删除
+$ git rm a.txt          #将a.txt从暂存区删除
+
+4.用命令git commit告诉Git，把版本库里文件提交到仓库
+$ git commit -m "说明信息"
+
+4.用命令git push完成本地仓库与github项目仓库的同步
